@@ -36,19 +36,29 @@
     </mat-form-field>
     <mat-form-field class="example-full-width">
         <mat-label>Check-out Date</mat-label>
-        <input matInput [matDatepicker]="picker" formControlName="checkoutDate">
+        <input matInput [matDatepicker]="picker1" formControlName="checkoutDate">
         <mat-hint>MM/DD/YYYY</mat-hint>
-        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-        <mat-datepicker #picker></mat-datepicker>
+        <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+        <mat-datepicker #picker1></mat-datepicker>
+        <mat-error *ngIf="bookingForm.get('checkoutDate')?.hasError('invalidDate')">
+            Must check-out at least one day after check-in!
+        </mat-error>
     </mat-form-field>
     <mat-form-field class="example-full-width">
         <mat-label>Guest Name</mat-label>
         <input type="text" matInput formControlName="guestName" placeholder="Guest Name">
+        <!-- {{bookingForm.get('guestName')?.errors | json}} -->
         <mat-error *ngIf="bookingForm.get('guestName')?.hasError('minlength')">
             Name must be at least five characters!
         </mat-error>
         <mat-error *ngIf="bookingForm.get('guestName')?.hasError('required')">
             Name is required!
+        </mat-error>
+        <mat-error *ngIf="bookingForm.get('guestName')?.hasError('invalidName')">
+            Name is invalid!
+        </mat-error>
+        <mat-error *ngIf="bookingForm.get('guestName')?.hasError('invalidSpecialChar')">
+            Name should not contain character '{{bookingForm.get('guestName')?.getError('invalidSpecialChar')}}'!
         </mat-error>
     </mat-form-field>
     <mat-form-field class="example-full-width">

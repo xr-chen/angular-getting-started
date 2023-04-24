@@ -12,6 +12,9 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatIconModule } from '@angular/material/icon';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { HttpClientModule } from '@angular/common/http';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [
@@ -29,6 +32,9 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
     MatExpansionModule,
     MatIconModule,
     MatCheckboxModule,
+    HttpClientModule,
+    MatDialogModule,
+    MatSnackBarModule,
   ]
 })
 export class BookingModule { }

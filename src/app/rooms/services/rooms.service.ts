@@ -3,7 +3,6 @@ import { Inject, Injectable } from '@angular/core';
 import { Observable, shareReplay } from 'rxjs';
 import { AppConfig } from 'src/app/AppConfig/appconfig.interface';
 import { APP_SERVICE_CONFIG } from 'src/app/AppConfig/appconfig.service';
-import { environment } from 'src/environments/environment';
 import { RoomList } from '../room';
 
 @Injectable({ providedIn: 'root' })

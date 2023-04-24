@@ -7,8 +7,9 @@
 <form #roomsForm="ngForm" (ngSubmit)="AddRoom(roomsForm)">
     <div class="form-group">
         <input required class="form-control" name="roomType" type="text" placeholder="Room Type"
-            [(ngModel)]="room.roomType" />
+            [(ngModel)]="room.roomType" [ngModelOptions]="{updateOn: 'blur'}" />
     </div>
+    <!-- only check changes for validation while moving out from the form control -->
     <div class="form-group">
         <input #roomAmenities="ngModel" required class="form-control" minlength="5" maxlength="20" name="amenities"
             type="text" placeholder="Amenities" [(ngModel)]="room.amenities" />

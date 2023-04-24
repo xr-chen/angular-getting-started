@@ -5,6 +5,7 @@ import { HeaderComponent } from '../header/header.component';
 import { Room, RoomList } from './room';
 import { RoomsService } from './services/rooms.service';
 import { ConfigService } from '../services/config.service';
+import { FormControl } from '@angular/forms';
 
 
 @Component({
@@ -34,6 +35,8 @@ export class RoomsComponent implements OnInit, AfterViewInit {
       return of([]);
     })
   );
+
+  priceFilter = new FormControl(0);
 
   roomCount$ = this.roomService.getRooms$.pipe(
     map(rooms => rooms.length)
@@ -105,9 +108,9 @@ export class RoomsComponent implements OnInit, AfterViewInit {
   ngAfterViewInit(): void {
     // console.log("view child: ", this.headerComponent);
     // console.log("view children: ", this.headerChildrenComponent)
-    this.headerComponent.title = "Welcome to " + this.hotelName;
+    // this.headerComponent.title = "Welcome to " + this.hotelName;
 
-    this.headerChildrenComponent.last.title = "Last title";
+    // this.headerChildrenComponent.last.title = "Last title";
   }
 
   toggle() {

@@ -4,34 +4,39 @@
 <hinv-header></hinv-header>
 <hinv-header></hinv-header>
 <!-- box syntax property binding -->
-<div [hidden]="hidenRooms">
-    Number of rooms:
-    <!-- property binding can only be used with any valid html properties -->
-    <div [ngStyle]="{'color': rooms.availableRoom ? 'green' : 'red'}" [innerText]="numberOfRooms"></div>
+<!-- <div [hidden]="hidenRooms">
+    Number of rooms:-->
+<!-- property binding can only be used with any valid html properties -->
+<!--     <div [ngStyle]="{'color': rooms.availableRoom ? 'green' : 'red'}" [innerText]="numberOfRooms"></div>
 </div>
 <div>
     Available Rooms: {{ rooms.availableRoom ?? 'No rooms!'}}
-</div>
+</div> -->
 <!-- {{roomList | json}} -->
 
-<div *ngIf="selectedRoom">
+<!-- <div *ngIf="selectedRoom">
     {{selectedRoom | json}}
-</div>
-<button routerLink="add">Add Room</button>
-<h1>
+</div> -->
+<button class="btn btn-primary" routerLink="add">Add Room</button>
+<!-- <h1>
     {{getError$ | async}}
-</h1>
-<h1>Number of Rooms: {{roomCount$ | async}}</h1>
+</h1> -->
+<!-- <h1>Number of Rooms: {{roomCount$ | async}}</h1> -->
+{{priceFilter | json}}
+<div>
+    <input type="number" class="form-control" placeholder="Price" [formControl]="priceFilter" />
+</div>
 <div *ngIf="rooms$ | async as rooms">
     <!-- event binding to 'selectedRoom' -->
-    <hinv-rooms-list [rooms]="rooms" [title]="title" (selectedRoom)="selectRoom($event)"></hinv-rooms-list>
+    <hinv-rooms-list [rooms]="rooms" [price]="priceFilter.value" [title]="title"
+        (selectedRoom)="selectRoom($event)"></hinv-rooms-list>
 </div>
 
 <!-- banana syntax and event binding -->
-<button (click)="toggle()" [disabled]="false">{{hidenRooms ? "show" : "hide"}}</button>
+<!-- <button (click)="toggle()" [disabled]="false">{{hidenRooms ? "show" : "hide"}}</button>
 <button (click)="editRoom()">Edit Room</button>
 <button (click)="deleteRoom()">Delete Room</button>
 
-<h1>{{totalBytes}} loaded!</h1>
+<h1>{{totalBytes}} loaded!</h1> -->
 
 <router-outlet></router-outlet>

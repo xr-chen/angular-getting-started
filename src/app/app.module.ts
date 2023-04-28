@@ -53,7 +53,7 @@ function initFactory(initService: InitService) {
     MatIconModule,
     MatListModule,
     FormsModule,
-    MatSnackBarModule
+    MatSnackBarModule,
   ],
   providers: [
     {
@@ -75,7 +75,7 @@ function initFactory(initService: InitService) {
       deps: [InitService],
       multi: true
     },
-    { provide: ErrorHandler, useClass: GlobalErrorHandler }
+    // { provide: ErrorHandler, useClass: GlobalErrorHandler }
   ],
   bootstrap: [AppComponent]
 })
